@@ -12,6 +12,7 @@
 </div> -->
 
 <ul class="background">
+  <!-- <img src="../favicon.ico">
   <img src="../favicon.ico">
   <img src="../favicon.ico">
   <img src="../favicon.ico">
@@ -20,16 +21,32 @@
   <img src="../favicon.ico">
   <img src="../favicon.ico">
   <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <!-- <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG">
-  <img src="../assets/dave1.PNG"> -->
+  <img src="../favicon.ico"> -->
+
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+  <img src="../assets/dave1.png">
+
+
 </ul>
+
+<script>
+$(document).ready(function () {
+    $('.container').mouseenter(function () {
+        $('.card').stop().animate({
+            top: '-90px'
+        }, 'slow');
+    }).mouseleave(function () {
+        $('.card').stop().animate({
+            top: 0
+        }, 'slow');
+    });
+});
+</script>
