@@ -1,28 +1,4 @@
-<!-- <div class="sidebar">
-  <a href="">Home</a>
-  <a href="Boards">Project #1</a>
-</div>
-
-<div class="content">
-  <h1>This is a work in progress test <fa-icon [icon]="faClipboard"></fa-icon></h1>
-
-  <div class="container">
-
-  </div>
-</div> -->
-
 <ul class="background">
-  <!-- <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico">
-  <img src="../favicon.ico"> -->
-
   <img src="../assets/dave1.png">
   <img src="../assets/dave1.png">
   <img src="../assets/dave1.png">
@@ -35,18 +11,21 @@
   <img src="../assets/dave1.png">
 
 
+  <div id="app">
+    <div class="gift" [ngClass]="{'dukdit': !open}" (click)="click()">
+      <div class="gift-top" 
+           [ngClass]="{'boxOpen': open}"
+       ></div>
+      <h1 class="gift-text" *ngIf="open">
+        <div class="typewriter">
+          <h1>Happy 1st Anniversary My Love!!!</h1>
+        </div>
+
+        <!-- {{text}} -->
+      </h1>
+      <div class="gift-box"
+           [ngClass]="{'boxDown': open}"
+       ></div>
+    </div>
+  </div>
 </ul>
-
-<script>
-$(document).ready(function () {
-    $('.container').mouseenter(function () {
-        $('.card').stop().animate({
-            top: '-90px'
-        }, 'slow');
-    }).mouseleave(function () {
-        $('.card').stop().animate({
-            top: 0
-        }, 'slow');
-    });
-});
-</script>
