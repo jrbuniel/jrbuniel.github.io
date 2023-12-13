@@ -277,3 +277,9 @@ body {
   from, to { border-color: transparent }
   50% { border-color: orange }
 }
+
+@media screen and (max-width:768px){
+  h1{
+     font-size:1.5em;
+  }    
+}
