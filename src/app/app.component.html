@@ -1,4 +1,4 @@
-<ul class="background">
+<!-- <ul class="background">
   <img src="../assets/dave1.png">
   <img src="../assets/dave1.png">
   <img src="../assets/dave1.png">
@@ -20,12 +20,24 @@
         <div class="typewriter">
           <h1>Happy 1st Anniversary My Love ❤❤❤</h1>
         </div>
-
-        <!-- {{text}} -->
       </h1>
       <div class="gift-box"
            [ngClass]="{'boxDown': open}"
        ></div>
     </div>
   </div>
-</ul>
+</ul> -->
+
+
+<div class="container">
+  <div>
+      <h1 class = "header_text">Do you wanna go out with me?</h1>
+  </div>
+  <div class="gif_container">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+  </div>
+  <div class = "buttons">
+    <button class="btn" id="yesButton" (click)="nextPage()">Yes</button>
+    <button class="btn" id="noButton" (mouseover)="moveButton()" onclick="moveButton()">No</button>
+  </div>
+</div>
