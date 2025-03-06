@@ -18,13 +18,13 @@ export class AppComponent {
       
   }
 
-  // click(): void {
-  //   this.open = !this.open;
+  click(): void {
+    this.open = !this.open;
 
-  //   if (this.open) {
+    if (this.open) {
 
-  //   }
-  // }
+    }
+  }
 
   nextPage(): void {
     window.location.href = "yes";
