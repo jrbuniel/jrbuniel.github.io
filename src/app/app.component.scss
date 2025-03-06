@@ -114,19 +114,19 @@ body {
   transition: 1s;
 }
 
-body.open{
-  animation: bg-change 1s 1;
-  background-color: #EFA5B2;
-  transition: 1s;
-}
-@keyframes bg-change{
-  0%{
-      background-color: #F0E2DB;
-  }
-  100%{
-      background-color: #EFA5B2;
-  }
-}
+// body.open{
+//   animation: bg-change 1s 1;
+//   background-color: #EFA5B2;
+//   transition: 1s;
+// }
+// @keyframes bg-change{
+//   0%{
+//       background-color: #F0E2DB;
+//   }
+//   100%{
+//       background-color: #EFA5B2;
+//   }
+// }
 .gift {
   position: absolute;
   top: 50%;
