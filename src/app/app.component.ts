@@ -12,7 +12,7 @@ export class AppComponent {
   faClipboard = faClipboard;
   
   open: boolean = false;
-  text: string = 'Happy Anniversary my love <br> haha';
+  text: string = '';
 
   ngOnInit() {
       
