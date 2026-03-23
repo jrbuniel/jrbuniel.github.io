@@ -1,7 +1,4 @@
-import { Component, OnInit, Renderer2, Inject } from '@angular/core';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import { DOCUMENT } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,34 +6,42 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  faClipboard = faClipboard;
-  
-  open: boolean = false;
-  text: string = '';
+  @ViewChild('noButton') noButton?: ElementRef<HTMLButtonElement>;
 
-  ngOnInit() {
-      
+  accepted = false;
+  dodgeCount = 0;
+
+  readonly promptLines = [
+    'Will you go out with me?',
+    'Please?',
+    'Still thinking about it?',
+    'That button is trying its best to save me.',
+    'I am taking that as a very soft maybe.'
+  ];
+
+  get prompt(): string {
+    return this.promptLines[Math.min(this.dodgeCount, this.promptLines.length - 1)];
   }
 
-  click(): void {
-    this.open = !this.open;
+  sayYes(): void {
+    this.accepted = true;
+  }
 
-    if (this.open) {
+  moveNoButton(): void {
+    const button = this.noButton?.nativeElement;
 
+    if (!button || this.accepted) {
+      return;
     }
-  }
 
-  nextPage(): void {
-    window.location.href = "yes";
-  }
+    this.dodgeCount += 1;
 
-  moveButton(): void {
-    var noButton = document.getElementById('noButton') as HTMLElement;
+    const maxX = Math.max(window.innerWidth - button.offsetWidth - 32, 0);
+    const maxY = Math.max(window.innerHeight - button.offsetHeight - 32, 0);
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-    var x = Math.random() * (window.innerWidth - noButton.offsetWidth) - 85;
-    var y = Math.random() * (window.innerHeight - noButton.offsetHeight) - 48;
-
-    noButton.style.left = `${x}px`;
-    noButton.style.top = `${y}px`;
+    button.style.left = `${x}px`;
+    button.style.top = `${y}px`;
   }
 }

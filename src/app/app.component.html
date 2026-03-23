@@ -1,14 +1,46 @@
-<!-- <div class="container">
-  <div>
-      <h1 class = "header_text">Will you go out with me?</h1>
-  </div>
-  <div class="gif_container">
-      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
-  </div>
-  <div class = "buttons">
-    <button class="btn" id="yesButton" (click)="nextPage()">Yes</button>
-    <button class="btn" id="noButton" (mouseover)="moveButton()" onclick="moveButton()">No</button>
-  </div>
-</div> -->
+<main class="page-shell">
+  <section class="card" [class.card--accepted]="accepted">
+    <div class="eyebrow">Tiny Angular love letter</div>
 
-<p>GEATAY ANIMAL</p>
+    <div class="hero">
+      <div class="copy">
+        <h1>{{ accepted ? 'Yay. It is a date.' : prompt }}</h1>
+        <p>
+          {{
+            accepted
+              ? 'I will bring the snacks, the playlist, and an unreasonable amount of enthusiasm.'
+              : 'This little landing page is now cleaned up and brought back to life as a playful single-screen experience.'
+          }}
+        </p>
+
+        <div class="actions" *ngIf="!accepted; else acceptedState">
+          <button class="btn btn--yes" type="button" (click)="sayYes()">Yes</button>
+          <button
+            #noButton
+            class="btn btn--no"
+            type="button"
+            (mouseenter)="moveNoButton()"
+            (focus)="moveNoButton()"
+            aria-label="No, but this button keeps moving"
+          >
+            No
+          </button>
+        </div>
+
+        <ng-template #acceptedState>
+          <div class="celebration">
+            <span class="celebration__badge">Mission accomplished</span>
+            <p class="celebration__note">
+              Thanks for saying yes. The evasive button has officially retired.
+            </p>
+          </div>
+        </ng-template>
+      </div>
+
+      <div class="art">
+        <div class="art__halo"></div>
+        <img src="assets/baby-enso.png" alt="Cute character illustration" />
+      </div>
+    </div>
+  </section>
+</main>

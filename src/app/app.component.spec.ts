@@ -1,31 +1,42 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent]
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'portfolio-landing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('portfolio-landing');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('portfolio-landing app is running!');
+  });
+
+  it('creates the app', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('renders the initial prompt and action buttons', () => {
+    const nativeElement = fixture.nativeElement as HTMLElement;
+
+    expect(nativeElement.querySelector('h1')?.textContent).toContain('Will you go out with me?');
+    expect(nativeElement.textContent).toContain('Yes');
+    expect(nativeElement.textContent).toContain('No');
+  });
+
+  it('shows the celebration state after clicking yes', () => {
+    const yesButton = fixture.debugElement.query(By.css('.btn--yes'));
+
+    yesButton.triggerEventHandler('click');
+    fixture.detectChanges();
+
+    const nativeElement = fixture.nativeElement as HTMLElement;
+    expect(nativeElement.querySelector('h1')?.textContent).toContain('Yay. It is a date.');
+    expect(nativeElement.textContent).toContain('Mission accomplished');
   });
 });
